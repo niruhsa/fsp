@@ -44,16 +44,12 @@ function generate_bip39(entropy) {
     if (entropies[entropies.length - 1].length < 32) {
         var hex = entropies[entropies.length - 1];
         for (var i = 0; i < (32 - entropies[entropies.length - 1].length); i++) hex += '0';
-        
         entropies[entropies.length - 1] = hex;
     }
-
-    console.log(entropies);
 
     var mnemonics = [];
     for (var i = 0; i < entropies.length; i++) {
         const mnemonic = bip39.entropyToMnemonic(entropies[i]);
-        console.log(mnemonic);
         mnemonics = mnemonics.concat(mnemonic.split(" "));
     } return mnemonics.join(" ");
 }
@@ -66,7 +62,6 @@ function bip39_to_password(mnemonic) {
     for (var i = 0; i < bytes; i++) {
         var m = [];
         for (var j = 0; j < 12; j++) m.push(arr[(i * 12) + j]);
-        console.log(m);
         mnemonics.push(m.join(" "));
     }
 
