@@ -27,6 +27,13 @@ function hash_password(pass, salt, time, mem, hashLen, parallelism, secret, ad, 
     });
 }
 
+function create_backup(pass) {
+    const entropy = strToHex(pass);
+    return generate_bip39(entropy);
+}
+
+function recover_from_backup(mnemonic) { return bip39_to_password(mnemonic); }
+
 function generate_bip39(entropy) {
     const hashLength = entropy.length;
     const bytes = Math.floor(hashLength / 32);
