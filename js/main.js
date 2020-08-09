@@ -41,6 +41,8 @@ function generate_bip39(entropy) {
         entropies[entropies.length - 1] = hex;
     }
 
+    console.log(entropies);
+
     var mnemonics = [];
     for (var i = 0; i < entropies.length; i++) {
         const mnemonic = bip39.entropyToMnemonic(entropies[i]);
