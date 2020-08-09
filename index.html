@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>FailSafe Password Generator</title>
+        <script src="js/bip39.js"></script>
+        <script src="js/main.js"></script>
+
+        <link rel="stylesheet" href="css/en_default.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="nav">
+                <div class="button" id="generate" onClick="return showGenerate();"><p>Generate backup key</p></div>
+                <div class="button" id="recover" onClick="return showRecover();"><p>Recover from backup</p></div>
+            </div>
+            <div class="main">
+                <div class="block" id="generate-content">
+                    <div class="header"><p>Generate backup key</p></div>
+                </div>
+                <div class="block" id="generate-recover">
+                    <div class="header"><p>Recover from backup</p></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function showGenerate() {
+            document.getElementById('generate-content').style.display = 'block';
+            document.getElementById('generate-recover').style.display = 'none';
+        }
+
+        function showRecover() {
+            document.getElementById('generate-content').style.display = 'none';
+            document.getElementById('generate-recover').style.display = 'block';
+        }
+
+        showGenerate();
+    </script>
+</html>
